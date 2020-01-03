@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #111;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    color: #fff;
+    line-height: 100vh;
+    letter-spacing: 0.2rem;
+}
+
+span {
+    transition: all 0.4s ease;
+    display: inline-block;
+    
+}
+
+span.fade { 
+    color: rgb(97, 97, 255);
+    animation: bouncing 2s 1;
+}
+
+@keyframes bouncing{
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-25px);
+    }
+    30% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-15px);
+    }
+    80% {
+        transform: translateY(0);
+    }
+    90% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
