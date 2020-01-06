@@ -10,7 +10,7 @@ header {
 }
 main {
     overflow: hidden;
-    padding-bottom: 70px;
+    padding-bottom: 30px;
 }
 footer {
     height: 70px;
@@ -33,6 +33,19 @@ nav {
     color: #777;
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s ease-in-out;
+    position: fixed;
+    width: calc(100% - 300px);
+    z-index: 9999;
+}
+.nav-show {
+    line-height: 53px;
+    padding: 10px 150px;
+    background-color: #fff;
+}
+.nav-hide {
+    transform: translateY(-100%);
+    transition: 0.3s ease-in-out;
 }
 nav ul {
     width: 600px;
@@ -57,6 +70,12 @@ nav ul li a:hover {
     justify-content: space-between;
     font-size: 20px;
 }
+.activity button {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
 .activity img {
     width: 20px;
     height: 20px;
@@ -67,6 +86,61 @@ nav ul li a:hover {
 .activity-item {
     position: relative;
 }
+.search-bar {
+    background-color: #fff;
+    height: 73px;
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 150px;
+    width: calc(100% - 300px);
+    transform: translateY(-100%);
+    transition: 0.5s ease-in-out;
+}
+.search-bar-show {
+    transform: translateY(0);
+}
+.search-bar input {
+    width: 80%;
+    height: 10px;
+    padding: 20px;
+    margin: 0 20px;
+    font-size: 23px;
+    font-weight: 300;
+    outline: none;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 1px solid rgb(148, 148, 148);
+    background: none;
+}
+.search-bar a {
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+}
+.close {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+.close div {
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    background-color: #333;
+}
+.span1 {
+    transform: rotate(45deg);
+}
+.span2 {
+    transform: rotate(-45deg);
+}
+
 /* .activity-item p {
     position: absolute;
     font-size: 8px;
@@ -91,7 +165,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-top: 113px;
 }
 .sub-content {
     display: block;
@@ -243,25 +317,28 @@ hr.style-six {
 /* Product list item */
 .product-list-items {
     margin-top: 35px;
-    background-color: #ffffff;
+    background-color: #fff;
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 
 }
 
 /* Individual item */
 .item {
     position: relative;
-    height: 350px;
+    height: 250px;
     border-radius: 3px;
     text-align: center;
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     transition: 1s ease-in-out;
+    text-decoration: none;
 }
-
+.item:hover, .item:focus {
+    transform: scale(1.1);
+}
 /* Item image */
 .item-img {
     height: 70%;
@@ -276,18 +353,17 @@ hr.style-six {
 
 /* Item details */
 .item-detail {
-    margin-top: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     text-align: center;
     width: 100%;
-    height: 18%;
+    height: calc(100% - 180px);
+    overflow: hidden;
 }
 .item-detail h5 {
     font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
     font-size: 14px !important;
     font-weight: 300 !important;
     color: #333;
@@ -304,6 +380,7 @@ hr.style-six {
     font-size: 14px !important;
     font-weight: 300 !important;
     color: #333;
+    margin: 0 5px;
 }
 .price p:nth-child(2) {
     color: red;
@@ -315,7 +392,7 @@ hr.style-six {
     justify-content: space-evenly;
     align-items: center;
     width: 30%;
-    margin: 20px auto 0 auto;
+    margin: 40px auto 0 auto;
 }
 .action-btn div {
     display: flex;
@@ -341,6 +418,9 @@ hr.style-six {
     font-weight: 500 !important;
     color: #333;
 }
+.active {
+    color: red !important;
+}
 .prev {
     transform: rotate(180deg);
     cursor: pointer;
@@ -358,16 +438,6 @@ hr.style-six {
         width: 90%;
         padding: 0 25px;
     }
-    .product-list-items {
-        grid-gap: 15px;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    
-    }
-    /* Individual item */
-    .item {
-        height: 290px;
-    }
-    
 }
 @media only screen and (max-width: 1057px) {
     nav {
